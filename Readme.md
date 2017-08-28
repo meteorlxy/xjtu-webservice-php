@@ -43,43 +43,43 @@ echo $result;
 
 ### WsUserInfo
 
-1. `getByNetid()` 通过NETID获取信息
+- `getByNetid()` 通过NETID获取信息
 
-- 参数：`string` 查询的NETID
+    - 参数：`string` 查询的NETID
 
-- 返回值：`array` 用户对象数组
+    - 返回值：`array` 用户对象数组
 
-2. `getByName()` 通过姓名获取信息
+- `getByName()` 通过姓名获取信息
 
-- 参数：`string` 查询的姓名
+    - 参数：`string` 查询的姓名
 
-- 返回值：`array` 用户对象数组
+    - 返回值：`array` 用户对象数组
 
-3. `getByUserno()` 通过学工号获取信息
+- `getByUserno()` 通过学工号获取信息
 
-- 参数：`string` 查询的学工号
+    - 参数：`string` 查询的学工号
 
-- 返回值：`array` 用户对象数组
+    - 返回值：`array` 用户对象数组
 
-4. `getByMobile()` 通过手机号获取信息
+- `getByMobile()` 通过手机号获取信息
 
-- 参数：`string` 查询的手机号
+    - 参数：`string` 查询的手机号
 
-- 返回值：`array` 用户对象数组
+    - 返回值：`array` 用户对象数组
 
-5. `setFilter()` 设置要隐藏的字段
+- `setFilter()` 设置要隐藏的字段
 
-- 参数：`array` 字段名数组
+    - 参数：`array` 字段名数组
 
-- 返回值：`UserInfo` (可链式调用，对当前示例持续生效)
+    - 返回值：`UserInfo` (可链式调用，对当前示例持续生效)
 
-- 示例：
+    - 示例：
 
-```php
-$userinfo->setFilter(['userno'])->getByNetid('netid');
-```
+    ```php
+    $userinfo->setFilter(['userno'])->getByNetid('netid');
+    ```
 
-- 注意：默认`filter = ['idcardname' ,'idcardno']`，即默认隐藏证件名称和证件号码
+    - 注意：默认`filter = ['idcardname' ,'idcardno']`，即默认隐藏证件名称和证件号码
 
 #### 字段列表
 
@@ -111,21 +111,21 @@ tutoremployeeid | 导师姓名  | 王树国
 
 ### WsUserPhoto
 
-1. `getByUserno()` 通过学工号获取照片
+- `getByUserno()` 通过学工号获取照片
 
-- 参数：`string` 查询的学工号
+    - 参数：`string` 查询的学工号
 
-- 返回值：`string` (base64)
+    - 返回值：`string` (base64)
 
 ### WsSms
 
-1. `send()` 发送短信
+- `send()` 发送短信
 
-- 参数1：`string` 目标手机号，多个号码用半角逗号隔开
+    - 参数1：`string` 目标手机号，多个号码用半角逗号隔开
 
-- 参数2: `string` 短信内容，根据长度会拆分成多条
+    - 参数2: `string` 短信内容，根据长度会拆分成多条
 
-- 返回值：`int` 发送结果，好像没什么用，成不成功都回0
+    - 返回值：`int` 发送结果，好像没什么用，成不成功都回0
 
 
 ## Related Packages 相关包
