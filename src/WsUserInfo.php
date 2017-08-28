@@ -148,7 +148,7 @@ class WsUserInfo extends XjtuWebService {
      */
     public function getByMobile($mobile) {
         try {
-            $result = $this->soap()->getInfoByNo([
+            $result = $this->soap()->getInfoByMobile([
                 'auth'   => $this->auth,
                 'mobile' => $mobile
             ]);
