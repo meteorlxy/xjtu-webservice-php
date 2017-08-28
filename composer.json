@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Xjtuana\\Ws\\Webservice\\": "src/"
+            "Xjtuana\\Ws\\WebService\\": "src/"
         }
     },
     "extra": {

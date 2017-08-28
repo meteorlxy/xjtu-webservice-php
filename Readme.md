@@ -36,7 +36,7 @@ try {
     throw $e;
 }
 
-echo $result;
+var_dump($result);
 ```
 
 ## API
