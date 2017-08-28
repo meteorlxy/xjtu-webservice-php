@@ -1,0 +1,27 @@
+{
+    "name": "xjtuana/xjtu-webservice",
+    "description": "XJTU Webservice package for PHP",
+    "keywords": ["xjtu", "webservice", "soap"],
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "meteorlxy",
+            "email": "meteor.lxy@foxmail.com",
+            "homepage": "https://www.meteorlxy.cn"
+        }
+    ],
+    "require": {
+        "ext-soap": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xjtuana\\Ws\\Webservice\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "v1.x-dev"
+        }
+    }
+}
