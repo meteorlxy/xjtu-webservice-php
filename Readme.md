@@ -9,7 +9,7 @@ PHP Client for XJTU Webservice
 
 ## Usage 使用方法
 
-- 通过Composer引入包（需要配置[Private Packagist](https://packagist.com/orgs/xjtuana)）
+- 通过Composer引入包（[Packagist](https://packagist.org/packages/xjtuana/xjtu-webservice)）
 
 ```shell
 composer require xjtuana/xjtu-webservice ~1.0
