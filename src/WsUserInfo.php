@@ -170,7 +170,7 @@ class WsUserInfo extends XjtuWebService {
     protected function parseResult($result) {
  
         if (! property_exists($result, 'return')) {
-            throw new XjtuWebServiceException('Invalid response from web service server.');
+            return [];
         }
 
         $result = $result->return;
