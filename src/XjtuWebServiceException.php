@@ -2,4 +2,4 @@
 
 namespace Xjtuana\Ws\WebService;
 
-class XjtuWsException extends \Exception {}
+class XjtuWebServiceException extends \Exception {}
