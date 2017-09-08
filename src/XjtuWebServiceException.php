@@ -1,5 +1,5 @@
 <?php
 
-namespace Xjtuana\Ws\WebService;
+namespace Xjtuana\XjtuWs\WebService;
 
 class XjtuWebServiceException extends \Exception {}

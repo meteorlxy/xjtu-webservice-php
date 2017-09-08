@@ -1,6 +1,6 @@
 <?php
 
-namespace Xjtuana\Ws\WebService;
+namespace Xjtuana\XjtuWs\WebService;
 
 use SoapClient;
 
@@ -33,7 +33,7 @@ abstract class XjtuWebService {
      * @param  string    $url 
      *
      * @return void
-     * @throws \Xjtuana\Ws\XjtuWebServiceException
+     * @throws \Xjtuana\XjtuWs\XjtuWebServiceException
      */
     public function __construct(string $url) {
         if ( empty($url) ) {
@@ -62,7 +62,7 @@ abstract class XjtuWebService {
      * @param  mixed    $result 
      *
      * @return mixed
-     * @throws \Xjtuana\Ws\XjtuWebServiceException
+     * @throws \Xjtuana\XjtuWs\XjtuWebServiceException
      */
     protected function parseResult($result) {}
 

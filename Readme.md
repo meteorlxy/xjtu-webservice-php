@@ -18,8 +18,8 @@ composer require xjtuana/xjtu-webservice ~1.0
 - 示例代码
 
 ```php
-use Xjtuana\Ws\WebService\WsUserInfo;
-use Xjtuana\Ws\WebService\XjtuWebServiceException;
+use Xjtuana\XjtuWs\WebService\WsUserInfo;
+use Xjtuana\XjtuWs\WebService\XjtuWebServiceException;
 
 try {
 
@@ -42,6 +42,15 @@ var_dump($result);
 ## API
 
 ### WsUserInfo
+
+- `__construct()` 构造函数
+    - 参数：`array` 配置数组
+```php
+[
+    'url' => 'WS_URL',
+    'auth' => 'WS_AUTH',
+]
+```
 
 - `getByNetid()` 通过NETID获取信息
 
@@ -111,6 +120,15 @@ tutoremployeeid | 导师姓名  | 王树国
 
 ### WsUserPhoto
 
+- `__construct()` 构造函数
+    - 参数：`array` 配置数组
+```php
+[
+    'url' => 'WS_URL',
+    'auth' => 'WS_AUTH',
+]
+```
+
 - `getByUserno()` 通过学工号获取照片
 
     - 参数：`string` 查询的学工号
@@ -118,6 +136,16 @@ tutoremployeeid | 导师姓名  | 王树国
     - 返回值：`string` (base64)
 
 ### WsSms
+
+- `__construct()` 构造函数
+    - 参数：`array` 配置数组
+```php
+[
+    'url' => 'WS_URL',
+    'usr' => 'WS_USER',
+    'PWD' => 'WS_PASSWORD',
+]
+```
 
 - `send()` 发送短信
 

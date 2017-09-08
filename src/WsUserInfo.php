@@ -1,6 +1,6 @@
 <?php
 
-namespace Xjtuana\Ws\WebService;
+namespace Xjtuana\XjtuWs\WebService;
 
 use SoapFault;
 
@@ -66,7 +66,7 @@ class WsUserInfo extends XjtuWebService {
      * @param  array    $config 
      *
      * @return void
-     * @throws \Xjtuana\Ws\WebService\XjtuWebServiceException
+     * @throws \Xjtuana\XjtuWs\WebService\XjtuWebServiceException
      */
     public function __construct(array $config) {
         
@@ -165,7 +165,7 @@ class WsUserInfo extends XjtuWebService {
      * @param  mixed    $result 
      *
      * @return array
-     * @throws \Xjtuana\Ws\WebService\XjtuWebServiceException
+     * @throws \Xjtuana\XjtuWs\WebService\XjtuWebServiceException
      */
     protected function parseResult($result) {
  
@@ -192,7 +192,7 @@ class WsUserInfo extends XjtuWebService {
      * @param  array    $result 
      *
      * @return array
-     * @throws \Xjtuana\Ws\WebService\XjtuWebServiceException
+     * @throws \Xjtuana\XjtuWs\WebService\XjtuWebServiceException
      */
     protected function filterResult(array $result) {
         foreach($result as $index => $user) {
@@ -215,7 +215,7 @@ class WsUserInfo extends XjtuWebService {
      *
      * @param  array    $filter 
      *
-     * @return \Xjtuana\Ws\WebService\UserInfo
+     * @return \Xjtuana\XjtuWs\WebService\UserInfo
      */
     public function setFilter(array $filter) {
         $this->filter = $filter;

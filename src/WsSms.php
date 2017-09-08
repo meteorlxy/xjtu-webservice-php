@@ -1,6 +1,6 @@
 <?php
 
-namespace Xjtuana\Ws\WebService;
+namespace Xjtuana\XjtuWs\WebService;
 
 use SoapFault;
 
@@ -33,7 +33,7 @@ class WsSms extends XjtuWebService {
      * @param  array    $config 
      *
      * @return void
-     * @throws \Xjtuana\Ws\WebService\XjtuWebServiceException
+     * @throws \Xjtuana\XjtuWs\WebService\XjtuWebServiceException
      */
     public function __construct(array $config) {
         
@@ -77,7 +77,7 @@ class WsSms extends XjtuWebService {
      * @param  mixed    $result 
      *
      * @return int
-     * @throws \Xjtuana\Ws\WebService\XjtuWebServiceException
+     * @throws \Xjtuana\XjtuWs\WebService\XjtuWebServiceException
      */
     protected function parseResult($result) {
  

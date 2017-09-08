@@ -1,6 +1,6 @@
 <?php
 
-namespace Xjtuana\Ws\WebService;
+namespace Xjtuana\XjtuWs\WebService;
 
 use SoapFault;
 
@@ -27,7 +27,7 @@ class WsUserPhoto extends XjtuWebService {
      * @param  array    $config 
      *
      * @return void
-     * @throws \Xjtuana\Ws\WebService\XjtuWebServiceException
+     * @throws \Xjtuana\XjtuWs\WebService\XjtuWebServiceException
      */
     public function __construct(array $config) {
         
@@ -63,7 +63,7 @@ class WsUserPhoto extends XjtuWebService {
      * @param  mixed    $result 
      *
      * @return string   base64
-     * @throws \Xjtuana\Ws\WebService\XjtuWebServiceException
+     * @throws \Xjtuana\XjtuWs\WebService\XjtuWebServiceException
      */
     protected function parseResult($result) {
  
