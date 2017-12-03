@@ -39,7 +39,9 @@ abstract class XjtuWebService {
      *
      * @var array
      */
-    protected $options;
+    protected $options = [
+        'connection_timeout' => 5,
+    ];
     
     /**
      * 要求必须传入的配置项.
@@ -69,7 +71,7 @@ abstract class XjtuWebService {
         }
         $this->url = $url;
         $this->config = $config;
-        $this->options = $options;
+        $this->options = array_merge($this->options, $options);
     }
 
     /**

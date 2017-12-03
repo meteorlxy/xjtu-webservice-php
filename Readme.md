@@ -33,7 +33,7 @@ try {
         // options for SoapClient (see: http://php.net/manual/en/soapclient.soapclient.php)
         [
             'compression ' => ....,
-            'connection_timeout' => ....,
+            'connection_timeout' => ...., // default connection_timeout = 5
             ...
         ]
     );
