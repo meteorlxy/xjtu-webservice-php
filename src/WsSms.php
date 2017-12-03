@@ -8,45 +8,24 @@ use SoapFault;
  * Class WsSms.
  * 发送短信的Web Service
  *
+ * @param $config['usr']  调用该webservice需要的用户名
+ * @param $config['pwd']  调用该webservice需要的密码
+ * 
  * @author meteorlxy <meteor.lxy@foxmail.com>
  *
  */
 class WsSms extends XjtuWebService {
 
     /**
-     * 调用该webservice需要的用户名.
+     * 要求必须传入的配置项.
      *
-     * @var string
+     * @var array
      */
-    protected $usr;
-
-    /**
-     * 调用该webservice需要的密码.
-     *
-     * @var string
-     */
-    protected $pwd;
-
-    /**
-     * 构造函数，传入config数组.
-     *
-     * @param  array    $config 
-     *
-     * @return void
-     * @throws \Xjtuana\XjtuWs\WebService\XjtuWebServiceException
-     */
-    public function __construct(array $config) {
-        
-        parent::__construct($config['url']);
-        
-        if (empty($config['usr']) || empty($config['pwd'])) {
-            throw new XjtuWebServiceException('The config of '.__CLASS__.' service is not complete.');
-        }
-        
-        $this->usr = $config['usr'];
-        $this->pwd = $config['pwd'];
-    }
-
+    protected $requiredConfig = [
+        'usr',
+        'pwd'
+    ];
+    
     /**
      * 发送短信.
      *
@@ -59,8 +38,8 @@ class WsSms extends XjtuWebService {
     public function send($mobile, $content) {
         try {
             $result = $this->soap()->sendMsg([
-                'in0' => $this->usr,
-                'in1' => $this->pwd,
+                'in0' => $this->config['usr'],
+                'in1' => $this->config['pwd'],
                 'in2' => $mobile,
                 'in3' => $content,
             ]);

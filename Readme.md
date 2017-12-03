@@ -23,10 +23,20 @@ use Xjtuana\XjtuWs\WebService\XjtuWebServiceException;
 
 try {
 
-    $userinfo = new WsUserInfo([
-        'url' => '...',
-        'auth' => '...',
-    ]);
+    $userinfo = new WsUserInfo(
+        // url of the webservice
+        'url',
+        // config of the webservice
+        [
+            'auth' => ...,
+        ],
+        // options for SoapClient (see: http://php.net/manual/en/soapclient.soapclient.php)
+        [
+            'compression ' => ....,
+            'connection_timeout' => ....,
+            ...
+        ]
+    );
     
     $result = $userinfo->getByNetid('netid');
     
@@ -44,10 +54,10 @@ var_dump($result);
 ### WsUserInfo
 
 - `__construct()` 构造函数
+    - 参数：`string` 调用URL
     - 参数：`array` 配置数组
 ```php
 [
-    'url' => 'WS_URL',
     'auth' => 'WS_AUTH',
 ]
 ```
@@ -121,10 +131,10 @@ tutoremployeeid | 导师姓名  | 王树国
 ### WsUserPhoto
 
 - `__construct()` 构造函数
+    - 参数：`string` 调用URL
     - 参数：`array` 配置数组
 ```php
 [
-    'url' => 'WS_URL',
     'auth' => 'WS_AUTH',
 ]
 ```
@@ -138,12 +148,12 @@ tutoremployeeid | 导师姓名  | 王树国
 ### WsSms
 
 - `__construct()` 构造函数
+    - 参数：`string` 调用URL
     - 参数：`array` 配置数组
 ```php
 [
-    'url' => 'WS_URL',
     'usr' => 'WS_USER',
-    'PWD' => 'WS_PASSWORD',
+    'pwd' => 'WS_PASSWORD',
 ]
 ```
 

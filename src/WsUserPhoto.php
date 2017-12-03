@@ -8,6 +8,8 @@ use SoapFault;
  * Class WsUserPhoto.
  * 获取用户照片的Web Service
  * 默认获取的是照片的base64编码，可直接通过<img>标签的src属性显示
+ * 
+ * @param $config['auth']  调用该webservice需要的凭证
  *
  * @author meteorlxy <meteor.lxy@foxmail.com>
  *
@@ -15,26 +17,13 @@ use SoapFault;
 class WsUserPhoto extends XjtuWebService {
 
     /**
-     * 调用该webservice需要的凭证.
+     * 要求必须传入的配置项.
      *
-     * @var string
+     * @var array
      */
-    protected $auth;
-
-    /**
-     * 构造函数，传入config数组.
-     *
-     * @param  array    $config 
-     *
-     * @return void
-     * @throws \Xjtuana\XjtuWs\WebService\XjtuWebServiceException
-     */
-    public function __construct(array $config) {
-        
-        parent::__construct($config['url']);
-
-        $this->auth = $config['auth'];
-    }
+    protected $requiredConfig = [
+        'auth',
+    ];
 
     /**
      * 根据用户学工号查询照片.
@@ -47,7 +36,7 @@ class WsUserPhoto extends XjtuWebService {
     public function getByUserno($userno) {
         try {
             $result = $this->soap()->getPhotoByNo([
-                'auth'  => $this->auth,
+                'auth'  => $this->config['auth'],
                 'sno'   => $userno
             ]);
         } catch (SoapFault $e) {

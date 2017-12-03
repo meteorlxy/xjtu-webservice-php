@@ -28,18 +28,48 @@ abstract class XjtuWebService {
     protected $url;
 
     /**
+     * 该webservice的config.
+     *
+     * @var array
+     */
+    protected $config;
+
+    /**
+     * 传入SoapClient的options.
+     *
+     * @var array
+     */
+    protected $options;
+    
+    /**
+     * 要求必须传入的配置项.
+     *
+     * @var array
+     */
+    protected $requiredConfig = [];
+
+    /**
      * 构造函数，传入url.
      *
-     * @param  string    $url 
+     * @param  string   $url
+     * @param  array    $config
+     * @param  array    $options
      *
      * @return void
      * @throws \Xjtuana\XjtuWs\XjtuWebServiceException
      */
-    public function __construct(string $url) {
-        if ( empty($url) ) {
-            throw new XjtuWebServiceException('The url of '.__CLASS__.' service is required.');
+    public function __construct(string $url, array $config, array $options = []) {
+        if (empty($url)) {
+            throw new XjtuWebServiceException('The url of '.__CLASS__.' is required.');
+        }
+        foreach($this->requiredConfig as $reqconf) {
+            if (empty($config[$reqconf])) {
+                throw new XjtuWebServiceException('The config[\''.$reqconf.'\'] of '.__CLASS__.' is required.');
+            }
         }
         $this->url = $url;
+        $this->config = $config;
+        $this->options = $options;
     }
 
     /**
@@ -49,7 +79,7 @@ abstract class XjtuWebService {
      */
     protected function soap() {
         if (!$this->soap instanceof SoapClient) {
-            $this->soap = new SoapClient($this->url);
+            $this->soap = new SoapClient($this->url, $this->options);
             $this->soap->soap_defencoding = 'utf-8';
             $this->soap->xml_encoding = 'utf-8';
         }

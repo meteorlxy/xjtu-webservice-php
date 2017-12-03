@@ -7,6 +7,8 @@ use SoapFault;
 /**
  * Class WsUserInfo.
  * 获取用户信息的Web Service
+ * 
+ * @param $config['auth']  调用该webservice需要的凭证
  *
  * @author meteorlxy <meteor.lxy@foxmail.com>
  *
@@ -14,11 +16,13 @@ use SoapFault;
 class WsUserInfo extends XjtuWebService {
 
     /**
-     * 调用该webservice需要的凭证.
+     * 要求必须传入的配置项.
      *
-     * @var string
+     * @var array
      */
-    protected $auth;
+    protected $requiredConfig = [
+        'auth',
+    ];
 
     /**
      * Webservice响应中所包含的用户信息fields.
@@ -61,21 +65,6 @@ class WsUserInfo extends XjtuWebService {
     ];
 
     /**
-     * 构造函数，传入config数组.
-     *
-     * @param  array    $config 
-     *
-     * @return void
-     * @throws \Xjtuana\XjtuWs\WebService\XjtuWebServiceException
-     */
-    public function __construct(array $config) {
-        
-        parent::__construct($config['url']);
-        
-        $this->auth = $config['auth'];
-    }
-
-    /**
      * 根据用户Netid查询信息.
      *
      * @param  string   $netid 
@@ -86,7 +75,7 @@ class WsUserInfo extends XjtuWebService {
     public function getByNetid($netid) {
         try {
             $result = $this->soap()->getInfoById([
-                'auth'  => $this->auth,
+                'auth'  => $this->config['auth'],
                 'uid'   => $netid
             ]);
         } catch (SoapFault $e) {
@@ -107,7 +96,7 @@ class WsUserInfo extends XjtuWebService {
     public function getByName($name) {
         try {
             $result = $this->soap()->getInfoByName([
-                'auth'  => $this->auth,
+                'auth'  => $this->config['auth'],
                 'sname' => $name
             ]);
         } catch (SoapFault $e) {
@@ -128,7 +117,7 @@ class WsUserInfo extends XjtuWebService {
     public function getByUserno($userno) {
         try {
             $result = $this->soap()->getInfoByNo([
-                'auth'  => $this->auth,
+                'auth'  => $this->config['auth'],
                 'sno'   => $userno
             ]);
         } catch (SoapFault $e) {
@@ -149,7 +138,7 @@ class WsUserInfo extends XjtuWebService {
     public function getByMobile($mobile) {
         try {
             $result = $this->soap()->getInfoByMobile([
-                'auth'   => $this->auth,
+                'auth'  => $this->config['auth'],
                 'mobile' => $mobile
             ]);
         } catch (SoapFault $e) {
